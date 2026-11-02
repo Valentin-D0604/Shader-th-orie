@@ -40,9 +40,11 @@ Material:
     m_Floats:
     - _QueueControl: 0
     - _QueueOffset: 0
-    - _speed: 5
+    - _speed: 2.5
     m_Colors:
     - _Color: {r: 1, g: 0, b: 0, a: 1}
+    - _Color_a: {r: 1, g: 0.8217412, b: 0, a: 1}
+    - _Color_b: {r: 0.11320752, g: 0, b: 0, a: 1}
   m_BuildTextureStacks: []
   m_AllowLocking: 1
 --- !u!114 &1232037560054402272
