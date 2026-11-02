@@ -496,6 +496,26 @@ PrefabInstance:
       propertyPath: m_Name
       value: Boule a neige
       objectReference: {fileID: 0}
+    - target: {fileID: 6317578925029434746, guid: 2a6a0848055e7ee4c9c164cc2ff10b9f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: 3ba347ace127ccc43834219b23ffcbcf, type: 2}
+    - target: {fileID: 7202271454713460447, guid: 2a6a0848055e7ee4c9c164cc2ff10b9f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: 2100000, guid: eeb906403f9624e45b9a59d8a3f2ad35, type: 2}
+    - target: {fileID: 8569425164699422647, guid: 2a6a0848055e7ee4c9c164cc2ff10b9f, type: 3}
+      propertyPath: 'm_Materials.Array.data[0]'
+      value: 
+      objectReference: {fileID: -876546973899608171, guid: 7ca2a8fc934643649bfb44175e9d0054, type: 3}
+    - target: {fileID: 8632055958874330854, guid: 2a6a0848055e7ee4c9c164cc2ff10b9f, type: 3}
+      propertyPath: m_LocalPosition.y
+      value: 2.593
+      objectReference: {fileID: 0}
+    - target: {fileID: 8632055958874330854, guid: 2a6a0848055e7ee4c9c164cc2ff10b9f, type: 3}
+      propertyPath: m_LocalPosition.z
+      value: -0
+      objectReference: {fileID: 0}
     m_RemovedComponents: []
     m_RemovedGameObjects: []
     m_AddedGameObjects: []
