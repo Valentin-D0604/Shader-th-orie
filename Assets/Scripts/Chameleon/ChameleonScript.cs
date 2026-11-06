@@ -23,7 +23,6 @@ public class ChameleonScript : MonoBehaviour
     {
         float elapsedTime = 0.0f;
         Color startColor = _renderer.material.GetColor(name);
-
         while (elapsedTime < ChangeDuration)
         {
             elapsedTime += Time.deltaTime;
