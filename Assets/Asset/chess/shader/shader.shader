@@ -1,56 +1,40 @@
-Shader "Custom/shader"
+Shader "Unlit/Checkerboard"
 {
     Properties
     {
-        [MainColor] _BaseColor("Base Color", Color) = (1, 1, 1, 1)
-        [MainTexture] _BaseMap("Base Map", 2D) = "white" {}
+        _Density ("Density", Range(2,50)) = 30
     }
-
     SubShader
     {
-        Tags { "RenderType" = "Opaque" "RenderPipeline" = "UniversalPipeline" }
-
         Pass
         {
             HLSLPROGRAM
-
             #pragma vertex vert
             #pragma fragment frag
+            #include "UnityCG.cginc"
 
-            #include "Packages/com.unity.render-pipelines.universal/ShaderLibrary/Core.hlsl"
-
-            struct Attributes
+            struct v2f
             {
-                float4 positionOS : POSITION;
                 float2 uv : TEXCOORD0;
+                float4 vertex : SV_POSITION;
             };
 
-            struct Varyings
+            float _Density;
+
+            v2f vert (float4 pos : POSITION, float2 uv : TEXCOORD0)
             {
-                float4 positionHCS : SV_POSITION;
-                float2 uv : TEXCOORD0;
-            };
-
-            TEXTURE2D(_BaseMap);
-            SAMPLER(sampler_BaseMap);
-
-            CBUFFER_START(UnityPerMaterial)
-                half4 _BaseColor;
-                float4 _BaseMap_ST;
-            CBUFFER_END
-
-            Varyings vert(Attributes IN)
-            {
-                Varyings OUT;
-                OUT.positionHCS = TransformObjectToHClip(IN.positionOS.xyz);
-                OUT.uv = TRANSFORM_TEX(IN.uv, _BaseMap);
-                return OUT;
+                v2f o;
+                o.vertex = UnityObjectToClipPos(pos);
+                o.uv = uv * _Density;
+                return o;
             }
-
-            half4 frag(Varyings IN) : SV_Target
+            
+            fixed4 frag (v2f i) : SV_Target
             {
-                half4 color = SAMPLE_TEXTURE2D(_BaseMap, sampler_BaseMap, IN.uv) * _BaseColor;
-                return color;
+                float2 c = i.uv;
+                c = floor(c) / 2;
+                float checker = frac(c.x + c.y) * 2;
+                return checker;
             }
             ENDHLSL
         }
